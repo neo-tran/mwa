@@ -19,13 +19,18 @@ var url = require('url');
 http.createServer(function(req, res){
   var request = url.parse(req.url, true);
   var action = request.pathname;
-
-  if (action == '/path/to/my/file.txt') {
-     var myfile = fs.readFileSync('./path/to/my/file.txt');
-     res.writeHead(200, {'Content-Type': 'text/plain' });
-     res.end(myfile, 'binary');
-  } else { 
-     res.writeHead(200, {'Content-Type': 'text/plain' });
-     res.end('Welcome to ours course about NodeJS \n');
-  }
+  var file_path = __dirname + action;
+  fs.exists(file_path, (exist)=>{
+    if(exist)
+    {
+      var fileContents = fs.readFileSync(file_path);
+      res.writeHead(200, {'Content-Type': 'text/plain' });
+      res.end(fileContents, 'binary');
+    }
+    else {
+      res.writeHead(200, {'Content-Type': 'text/html' });
+      res.end('<h1 style="color:red">File not found.</h1>');
+    }
+  });
+  
 }).listen(8080);
