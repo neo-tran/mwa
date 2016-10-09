@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NodeJs - Exercise 2</title>
+</head>
+<body>
+
+<script>
+
+  /* Solution 1: use temp array (oddNumbers variable) */
+  Array.prototype.odd = function(){
+    var oddNumbers = [];
+    this.forEach(function(num){
+      if(num % 2 > 0)
+        oddNumbers.push(num);
+    });
+    return oddNumbers;
+
+  };
+  
+  /* Solution 2: use splice function (do not use temp array) */
+  Array.prototype.even = function(){
+    for (var i = 0; i < this.length; i++) {
+      while (this[i] % 2) {
+          this.splice(i, 1);
+      }
+    }
+    return this;
+  };
+
+  /* Test the implementation */
+  
+  var oddList = [1, 2, 3, 4, 5, 6, 7, 8].odd();
+  //alert("odd numbers: " + oddList);
+
+  var evenList = [1, 2, 3, 4, 5, 6, 7, 8].even();
+  //alert("even numbers: " + evenList);
+
+</script>
+</body>
+</html>

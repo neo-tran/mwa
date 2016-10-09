@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NodeJs - Exercise 1</title>
+</head>
+<body>
+
+<script>
+
+  /* define shape object */
+  var shape = {
+    type: "shape",
+    getType: function()
+    {
+      return this.type;
+    }
+  }
+
+  /* define Triangle object */
+  var Triangle = function Triangle(a, b, c){
+    this.a = a;
+    this.b = b;
+    this.c = c;
+    this.type = "triangle";
+    this.getPerimeter = function(){
+      return this.a + this.b + this.c;
+    }
+  }
+
+  /* Prototype to shape object */
+  Triangle.prototype = Object.create(shape);
+
+  /* Test the implementation */
+  var t = new Triangle(1, 2, 3);
+  t.constructor; // Triangle(a, b, c)
+  var checkPrototype = shape.isPrototypeOf(t);
+  var perimeter = t.getPerimeter();
+  var tType = t.getType();
+
+  /*alert("shape.isPrototypeOf(t) : " + checkPrototype + "\n" 
+      + "t.getPerimeter() : " + perimeter + "\n" 
+      + "t.getType() : " + tType);*/
+
+</script>
+</body>
+</html>
