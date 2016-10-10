@@ -63,5 +63,7 @@ app.use(function(err, req, res, next) {
 });
 
 /**** Activate application on port 8080 ****/
-app.listen('8080');
+app.listen('8080', ()=>{
+  console.log('Server activated on port: 8080');
+});
 module.exports = app;
