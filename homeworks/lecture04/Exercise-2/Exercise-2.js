@@ -9,26 +9,37 @@
 
 /* Exercise - Make an HTTP server that saves the request body into a file. */
 
-// To test: http://localhost:8080/start?foo=bar&hello=world
 const http = require('http');
-const url = require('url');
-const querystring = require('querystring');
-var fs = require('fs');
+const fs = require('fs');
 
-function onRequest(request, response){
+const html =
+  '<html><head><title>Post Example</title></head>' +
+  '<body>' +
+  '<form method="post">' +
+  'Your Fist Name: <input name="firsname"><br>' +
+  'Your Last Name: <input name="lastname"><br>' +
+  '<input type="submit">' +
+  '</form>' +
+  '</body></html>';
 
-  // reading request data
-  const urlStr = request.url;
-  const pathName = url.parse(urlStr).pathname;
-  const query = url.parse(urlStr).query;
-  const jsonRequestData = JSON.stringify(querystring.parse(query));
+http.createServer(function (req, res) {
+  var body = '';
+  req.on('data', function (chunk) {
+    body += chunk;
+  });
+  req.on('end', function () { 
+    if (body != ''){
 
-  // write to file
-  fs.writeFile('request-body.json', jsonRequestData);
-
-  // end response
-  response.end('Please check the file: "' + __dirname + '/request-body.json"');
-}
-
-// actived server on port 8080 with the onRequest as a callback function
-http.createServer(onRequest).listen('8080');
+      // write to file
+      fs.writeFile('request-body.json', body);
+      
+      // return message
+      res.end('Your data have posted to: "' + __dirname + '/request-body.json"');
+      return;
+    }
+    res.writeHead(200);
+    res.end(html);
+  });
+}).listen(8080, ()=>{
+  console.log('Localhost server started on the port number: 8080');
+});
