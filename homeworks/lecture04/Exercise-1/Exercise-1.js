@@ -33,4 +33,6 @@ http.createServer(function(req, res){
     }
   });
   
-}).listen(8080);
+}).listen(8080, ()=>{
+  console.log('Server activated on port: 8080');
+});
