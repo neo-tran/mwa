@@ -1,0 +1,11 @@
+{"_id":{"$oid":"5804c6019144b20e05dc1e83"},"name":"Maharishi University","category":"School","location":[-91.96729010000001,41.017765]}
+{"_id":{"$oid":"5804c6159144b20e05dc1e84"},"name":"School Library","category":"Library","location":[-91.96895306958925,41.01809689303843]}
+{"_id":{"$oid":"5804c6469144b20e05dc1e85"},"name":"Everybody","category":"Food","location":[-91.96476882352601,41.01215494514461]}
+{"_id":{"$oid":"5804c6669144b20e05dc1e86"},"name":"Logli's Store","category":"Food","location":[-91.96818059339296,41.01279449933436]}
+{"_id":{"$oid":"5804c69f9144b20e05dc1e87"},"name":"McDonald's","category":"Food","location":[-91.98286836995851,41.00685207317481]}
+{"_id":{"$oid":"5804c80f9144b20e05dc1e88"},"name":"Waterworks","category":"Park","location":[-91.95591753377687,41.01954586988654]}
+{"_id":{"$oid":"5804c8489144b20e05dc1e89"},"name":"Jefferson County","category":"Conservation","location":[-91.99063604726564,40.98485881674939]}
+{"_id":{"$oid":"5804c88e9144b20e05dc1e8a"},"name":"My House","category":"House","location":[-91.96370660000002,41.0143141]}
+{"_id":{"$oid":"5804c8ad9144b20e05dc1e8b"},"name":"Heritage","category":"Park","location":[-91.97478955640565,41.0151259860861]}
+{"_id":{"$oid":"5804c8d99144b20e05dc1e8c"},"name":"Auto Care","category":"Auto","location":[-91.96836298360597,41.00685207317481]}
+{"_id":{"$oid":"5804c9059144b20e05dc1e8d"},"name":"Organic Mandalas","category":"Drink","location":[-91.96033781423341,41.01691502239821]}
